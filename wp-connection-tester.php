@@ -1,12 +1,12 @@
 <?php
 
 /*
-	Plugin Name: WP Connection Tester
-	Plugin URI: http://www.barrykooij.com/
+	Plugin Name: Fatcat Apps Connection Tester
+	Plugin URI: https://fatcatapps.com/
 	Description: Check if a WordPress website is able to connect to one of the license servers.
 	Version: 1.0.0
-	Author: Barry Kooij
-	Author URI: http://www.barrykooij.com/
+	Author: Fatcat Apps
+	Author URI: https://fatcatapps.com/
 	License: GPL v3
 
 	This program is free software: you can redistribute it and/or modify
@@ -23,12 +23,10 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class WP_Connection_Tester {
+class FCA_Connection_Tester {
 
 	private $urls = array(
-		'rp4wp' => 'https://www.relatedpostsforwp.com/',
-		'dlm'   => 'https://www.download-monitor.com/',
-		'pc'    => 'https://www.post-connector.com/',
+		'fca' => 'https://fatcatapps.com/'
 	);
 
 	private $admin_message = array();
@@ -46,7 +44,7 @@ class WP_Connection_Tester {
 	 * Add submenu page
 	 */
 	public function add_submenu_page() {
-		add_submenu_page( 'options-general.php', 'WP Connection Tester', 'WP Connection Tester', 'manage_options', 'wp_connection_tester', array(
+		add_submenu_page( 'options-general.php', 'Fatcat Apps Connection Tester', 'Fatcat Apps Connection Tester', 'manage_options', 'fca_connection_tester', array(
 			$this,
 			'screen'
 		) );
@@ -59,8 +57,8 @@ class WP_Connection_Tester {
 		?>
 		<div class="wrap" xmlns="http://www.w3.org/1999/html">
 
-			<div class="rp4wp-content">
-				<h2>Never5 Connection Tester</h2>
+			<div>
+				<h2>Connection Tester</h2>
 
 				<?php
 				if ( function_exists( 'curl_version' ) ) {
@@ -78,15 +76,8 @@ class WP_Connection_Tester {
 				?>
 
 				<form method="post"
-				      action="<?php echo admin_url( 'options-general.php?page=wp_connection_tester' ); ?>">
-					<p><label for="rp4wp"><input type="radio" name="bk_site" value="rp4wp" id="rp4wp" placeholder=""/>
-							Related Post for WordPress</label></p>
-
-					<p><label for="dlm"><input type="radio" name="bk_site" value="dlm" id="dlm" placeholder=""/>
-							Download Monitor</label></p>
-
-					<p><label for="pc"><input type="radio" name="bk_site" value="pc" id="pc" placeholder=""/> Post
-							Connector</label></p>
+				      action="<?php echo admin_url( 'options-general.php?page=fca_connection_tester' ); ?>">
+					<input type="hidden" name="bk_site" value="fca" id="fca" placeholder=""/>
 
 					<p><input type="submit" name="bk_active" value="Test"
 					          class="button button-primary"/></p>
@@ -141,8 +132,8 @@ class WP_Connection_Tester {
 
 }
 
-function __wp_connection_tester() {
-	new WP_Connection_Tester();
+function __fca_connection_tester() {
+	new FCA_Connection_Tester();
 }
 
-add_action( 'plugins_loaded', '__wp_connection_tester', 11 );
+add_action( 'plugins_loaded', '__fca_connection_tester', 11 );
