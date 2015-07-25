@@ -75,6 +75,7 @@ class FCA_Connection_Tester {
 				}
 				?>
 
+				<p>Please click the "Test" button below to test if your site can connect to the Fatcat Apps licensing server.</p>
 				<form method="post"
 				      action="<?php echo admin_url( 'options-general.php?page=fca_connection_tester' ); ?>">
 					<input type="hidden" name="bk_site" value="fca" id="fca" placeholder=""/>
