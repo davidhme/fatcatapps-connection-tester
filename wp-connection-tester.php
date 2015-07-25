@@ -3,7 +3,7 @@
 /*
 	Plugin Name: Fatcat Apps Connection Tester
 	Plugin URI: https://fatcatapps.com/
-	Description: Check if a WordPress website is able to connect to one of the license servers.
+	Description: Check if a WordPress website is able to connect to the Fatcat Apps licensing server.
 	Version: 1.0.0
 	Author: Fatcat Apps
 	Author URI: https://fatcatapps.com/
